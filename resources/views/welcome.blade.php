@@ -26,6 +26,12 @@
 
         <hr/>
 
+        <a href="/user">web user route</a>
+        <br/>
+        <a href="/api/user">api user route</a>
+
+        <hr/>
+
         <h2>User:</h2>
         {{ Auth::user() ?? "not logged in" }}
 
