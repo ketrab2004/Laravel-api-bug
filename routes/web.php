@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware("auth:sanctum")->get("/user", function (Request $request) {
+Route::middleware(["auth:sanctum", "ability:read-profile,user:read-profile"])->get("/user", function (Request $request) {
     return $request->user();
 });
 
