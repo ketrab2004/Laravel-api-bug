@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function Login()
+    public function Login(Request $request)
     {
         // select a random users' emails
         $user = User::all("email")->random();
@@ -18,7 +18,7 @@ class LoginController extends Controller
         return back()->with("msg", $success ? "succesfully logged in" : "failed to log in");
     }
 
-    public function Logout()
+    public function Logout(Request $request)
     {
         Auth::logout();
 
