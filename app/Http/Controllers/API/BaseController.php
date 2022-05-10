@@ -14,7 +14,7 @@ class BaseController extends Controller
      * @param ?string $msg optional message to give
      * @return JsonResponse json object response
      */
-    public function handleResponse(mixed $data, ?string $msg): JsonResponse
+    public function handleResponse(mixed $data = null, ?string $msg = null): JsonResponse
     {
         $result = [
             "success" => true
