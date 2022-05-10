@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
 
 class BaseController extends Controller
@@ -14,9 +12,9 @@ class BaseController extends Controller
      *
      * @param mixed $result what to return
      * @param ?string $msg optional message to give
-     * @return \Illuminate\Http\JsonResponse json object response
+     * @return JsonResponse json object response
      */
-    public function handleResponse(mixed $result, ?string $msg): \Illuminate\Http\JsonResponse
+    public function handleResponse(mixed $result, ?string $msg): JsonResponse
     {
         $result = [
             "success" => true,
@@ -35,9 +33,9 @@ class BaseController extends Controller
      * @param string $error error message
      * @param array $errorMsgs array of php error message?
      * @param ?int $code type of response
-     * @return \Illuminate\Http\JsonResponse json object response
+     * @return JsonResponse json object response
      */
-    public function handleError(string $error, array $errorMsgs = [], int $code = 500): \Illuminate\Http\JsonResponse
+    public function handleError(string $error, array $errorMsgs = [], int $code = 500): JsonResponse
     {
         $result = [
             "success" => false,
